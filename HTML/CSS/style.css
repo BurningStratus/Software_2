@@ -1,0 +1,46 @@
+
+body {
+    background-color:aliceblue;
+}
+
+.big {
+    color: whitesmoke;
+    outline: 100px; 
+    outline: solid; 
+    outline: black; 
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+    font-style: italic;
+    text-align: center;
+}
+.smaller {
+    border-radius: 5%;
+    border-color: whitesmoke;
+    border-style: ridge;
+    text-align: center;
+}
+
+#main_divider {
+    padding: auto;
+}
+
+.links {
+    font-style: italic;
+    color: blue;
+    border-style: double;
+    border-width: 5px;
+    border-color: black;
+    width: 20%;
+
+}
+.body_overall {
+    color: black;
+}
+.news {
+    border-style: solid;
+    border-width: 5px;
+    border-color: black;
+    width: 75%;
+    margin-left: 25%;
+    margin-top: -13.7%;
+
+}
