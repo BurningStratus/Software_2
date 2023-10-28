@@ -5,6 +5,7 @@ Talon luonnin yhteydessä talo luo tarvittavan määrän hissejä. Hissien lista
 Kirjoita taloon metodi aja_hissiä, joka saa parametreinaan hissin numeron ja kohdekerroksen.
 Kirjoita pääohjelmaan lauseet talon luomiseksi ja talon hisseillä ajelemiseksi.
 '''
+import time
 from numpy import inf
 
 
@@ -57,9 +58,15 @@ class Elevator:
         return
 
     def go_to(self, fl_num):
+        
         if self.floor == fl_num:
             print(f"You are already at {self.floor}th floor.")
+        
         elif self.low_floor <= fl_num <= self.hi_floor:
+            for floors in range(fl_num):
+                time.sleep(0.875)
+                print(f"[{self.floor + floors}]")
+                
             self.floor = fl_num
         return
 
@@ -123,7 +130,6 @@ while cmd_house:
     while cmd_lift != "stepout":
         chosen_elev.curr_floor()
         cmd_lift = input(":> ")
-qqq
         try:
             cmd_lift = int(cmd_lift)
             chosen_elev.go_to(int(cmd_lift))
