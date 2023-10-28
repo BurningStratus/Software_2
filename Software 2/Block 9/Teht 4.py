@@ -15,8 +15,8 @@ class Car:
 
     def speed_change(self):
         '''
-
-        :return:
+        sjkgulughir
+        :return: wewrwer
         '''
         delta = random.randint(-10, 15)
 
@@ -47,6 +47,7 @@ class Car:
     def finish(self):
         pass
 
+
 cars = []
 
 for plates in range(1, 11):
@@ -54,7 +55,6 @@ for plates in range(1, 11):
     car_i = "car_" + str(plates)
     cars.append([car_i, lic_plate, random.randint(100, 200)])
 
-#print(cars)
 '''
 cars = [('ABC-1', 198), ('ABC-2', 102), ('ABC-3', 164), 
         ('ABC-4', 191), ('ABC-5', 146), ('ABC-6', 152), 
