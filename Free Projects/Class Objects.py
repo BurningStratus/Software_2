@@ -36,5 +36,5 @@ for integ in range(1000):
     st1.woof(rand)
     st1.addtolist(namn, age, rand)
     print(names)
-
+qqq
 

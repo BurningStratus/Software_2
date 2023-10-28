@@ -114,7 +114,7 @@ metropol.add_course(physics)
 metropol.enrollment(st1)
 metropol.enrollment(st2)
 metropol.enrollment(st3)
-
+qqq
 laurea.enrollment(st4)
 laurea.enrollment(st5)
 laurea.enrollment(st6)

@@ -123,7 +123,7 @@ while cmd_house:
     while cmd_lift != "stepout":
         chosen_elev.curr_floor()
         cmd_lift = input(":> ")
-
+qqq
         try:
             cmd_lift = int(cmd_lift)
             chosen_elev.go_to(int(cmd_lift))

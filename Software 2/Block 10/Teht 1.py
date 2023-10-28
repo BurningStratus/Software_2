@@ -44,7 +44,7 @@ elev1 = Elevator()
 print("You step into the elevator. Type UP to go one level up, DOWN to go one level down, "
       "or floor number to go to [5, 4, 3, 2, 1, 0]."
       " Type 'step out' to end the 'journey'.")
-
+qqq
 cmd = "STARTER"
 
 while cmd:
