@@ -48,7 +48,7 @@ print("You step into the elevator. Type UP to go one level up, DOWN to go one le
 cmd = "STARTER"
 
 while cmd:
-
+    # 1
     elev1.curr_floor()
     cmd = input(":> ")
 
