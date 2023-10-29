@@ -11,7 +11,7 @@ from numpy import inf
 class House:
     
     amt = 0
-    firealarm_house = False
+    house_firealarm = False
 
     def __init__(self, high_floor, ground_floor):
         self.high_floor = high_floor
@@ -41,11 +41,13 @@ class House:
         return
     
     def firealarm(self):
-        self.firealarm_house = True
-        for elevator in self.list_of_elev:
-            elevator.curr_floor = self.ground_floor
-
+        self.house_firealarm = True
+        
         print("Fire alarm in house!")
+        
+        for elevator in self.list_of_elev:
+            elevator.goto(self, 0)
+
         print("All elevators are moved to the ground floor.")
 
         return
@@ -73,7 +75,12 @@ class Elevator:
         print(f"You are at [{self.floor}]")
         return
 
-    def go_to(self, fl_num):
+    def goto(self, house, fl_num):
+
+        if house.house_firealarm:
+            print("Moved to ground floor.")
+            self.floor = fl_num
+            return
 
         if self.floor == fl_num:
             print(f"You are already at {self.floor}th floor.")
@@ -124,9 +131,7 @@ while cmd_house:
 
     cmd_lift = True
 
-    print(len(listof_houses))
-
-    choice = int(input(f"Choose a house [1 - {len(listof_houses)}]\n:>"))
+    choice = int(input(f"\nChoose a house [1 - {len(listof_houses)}]\n:>"))
     house_in_play = listof_houses[choice - 1]
 
     # print(listof_houses[choice-1].listof_elev)
@@ -140,7 +145,7 @@ while cmd_house:
 
 
     print("You step into the elevator. Type UP to go one level up, DOWN to go one level down, "
-          f"or floor number to go to [{house_in_play.ground_floor} - {house_in_play.high_floor}]."
+          f"or floor number to go to [{house_in_play.ground_floor} - {house_in_play.high_floor}].")
     print(" Type 'step out' to end the 'journey'.")
 
     while cmd_lift != "stepout":
@@ -148,13 +153,10 @@ while cmd_house:
 
         chosen_elev.curr_floor()
         cmd_lift = input(":> ")
-        if house_in_play.firealarm_house == True:
-            print("Fire alarm!")
-            break
 
         try:
             cmd_lift = int(cmd_lift)
-            chosen_elev.go_to(int(cmd_lift))
+            chosen_elev.goto(int(cmd_lift))
         
         except:
             if cmd_lift.upper() == "STEP OUT":
@@ -169,4 +171,6 @@ while cmd_house:
                 print("whut???")
 
         if fire_alarm_trigger == 4:
-            house_in_play.house_firealarm
+            house_in_play.firealarm()
+            cmd_lift = "stepout"
+            print("Maybe it isn't the best idea to ride the lift during the fire alarm.")
