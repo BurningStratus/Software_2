@@ -1,0 +1,70 @@
+
+html {
+    background-color: aliceblue;
+}
+
+nav {
+    position: relative;
+}
+
+nav {
+    background-color: blanchedalmond;
+
+    padding-block: 2% ;
+    padding: 15px;
+
+    margin-top: -8px;
+    max-height: 20px;
+
+    max-width: 1200px;
+    min-width: 450px;
+    width: 50%;
+    text-align: right;
+
+    align-self: center;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.navigation a {
+    padding: 10px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+nav .company_name  {
+    
+    background-color: gray;
+    color: black;
+    
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: italic;
+    font-style: oblique;
+
+    padding-block: 2% ;
+    padding: 11px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+
+    margin-top: -66px;
+
+    height: 24px;
+    width: 115px;
+    max-block-size: 5%;
+
+
+}
+
+main {
+    margin-left: 15%;
+    margin-right: 15% ;
+    border: 2%;
+    border-style: solid;
+    
+}
+
+main section {
+
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
