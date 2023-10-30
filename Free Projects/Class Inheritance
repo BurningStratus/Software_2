@@ -1,0 +1,38 @@
+
+class Car:
+
+    def __init__(self, model, year, engine_liters) -> None:
+        self.model = model
+        self.year = year
+        self.engine_l = engine_liters
+
+    def showroom(self):
+        print(f"{self.model} {self.year} MidBlock {self.engine_l}")
+
+class BigBlock(Car):
+    def __init__(self, model, year, engine_liters) -> None:
+        super().__init__(model, year, engine_liters)
+
+    def showroom(self):
+        super().showroom()
+        print(f"{self.model} {self.year} BigBlock {self.engine_l}")
+        
+
+class SmallBlock(Car):
+    def __init__(self, model, year, engine_liters) -> None:
+        super().__init__(model, year, engine_liters)
+
+    def showroom(self):
+        
+        super().showroom()
+        print(f"{self.model} {self.year} SmallBlock {self.engine_l}")
+        
+
+
+stratus = SmallBlock("Stratus", 1995, "2.5V6")
+roadmaster = BigBlock("Roadmaster", 1990, "5.7V8")
+holden_hq = Car("Monaro HQ", 1972, "5.8V8")
+
+stratus.showroom()
+roadmaster.showroom()
+holden_hq.showroom()
