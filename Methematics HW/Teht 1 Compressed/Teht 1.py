@@ -34,10 +34,7 @@ for degrees in degree_list:
     adder = float(f"{np.deg2rad(degrees):0.1f}")
     rad_dict[degrees] = adder
 
-
 for records in rad_dict:
     print(f"Asteet: {records} Radiaanit: {rad_dict[records]}")
-
-### TODO 2 hrjoitus hypotenuusa check matiikka2 python1
 
 print(f"Hypoteuusan pituus on: {np.hypot(1.6, 2.3):.2f}")
