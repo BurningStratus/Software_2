@@ -1,20 +1,12 @@
-.company_name {
-  background-color: gray;
-  color: black;
-  
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-style: italic;
-  font-style: oblique;
+conpany_name{}
+    background-color: gray;
+    color: black;
+    
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: italic;
+    font-style: oblique;
 
-  padding-block: 2% ;
-  padding: 11px;
-  padding-top: 13px;
-  padding-bottom: 13px;
-
-  margin-top: -66px;
-  margin-left: 10px;
-
-  height: 24px;
-  width: 115px;
-  min-block-size: 5%;
-}
+    padding-block: 2% ;
+    padding: 11px;
+    padding-top: 13px;
+    padding-bottom: 13px;

@@ -6,6 +6,8 @@ html {
     
 }
 
+/* first apge -->*/
+
 nav {
     display: flex;
     
@@ -71,12 +73,10 @@ a:hover {
     color: #3f6424;
     outline: #203902;
     border-color: rgba(0, 0, 0, 0.697);
-
 }
 
 
 main {
-    /**/
     width: 70%;
     max-width: 1200px;
     min-width: 580px;
@@ -157,4 +157,16 @@ footer {
 
 footer p {
     padding-top: 1%;
+}
+
+
+/* products page --> */
+.products {
+    width: 100%;
+}
+
+.products section {
+    flex-wrap: wrap;
+    width: 25%;
+
 }
