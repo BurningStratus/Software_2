@@ -4,67 +4,87 @@ html {
 }
 
 nav {
-    position: relative;
-}
+    display: flex;
+    
+    background-color: darkslategrey;
 
-nav {
-    background-color: blanchedalmond;
-
-    padding-block: 2% ;
-    padding: 15px;
-
-    margin-top: -8px;
-    max-height: 20px;
-
-    max-width: 1200px;
-    min-width: 450px;
-    width: 50%;
-    text-align: right;
-
-    align-self: center;
-
+    padding-block: 2%;
+    
     margin-left: auto;
     margin-right: auto;
-}
-
-.navigation a {
-    padding: 10px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
-
-nav .company_name  {
+    margin-top: -8px;
     
-    background-color: gray;
-    color: black;
+    max-height: 30px;
+    max-width: 1200px;
+    min-width: 450px;
+    height: 83px;
+    width: 70%;
+
+    padding:24px 0 24px;
     
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-style: italic;
-    font-style: oblique;
-
-    padding-block: 2% ;
-    padding: 11px;
-    padding-top: 13px;
-    padding-bottom: 13px;
-
-    margin-top: -66px;
-
-    height: 24px;
-    width: 115px;
-    max-block-size: 5%;
+    text-align: right;
 
 
 }
+
+#comp_logo  {
+    
+    box-sizing: border-box;
+
+    display: flex;
+    width: 79px;
+    height: 79px;
+
+    margin-top: -25px;
+}
+
+nav ul {
+    display: flex;
+
+    list-style: none;
+    justify-content: space-evenly;
+
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: x-large;
+
+    width: 50%;
+    margin: auto;
+    margin-right: 10px
+}
+
+li:hover {
+    background-color: rgb(192, 158, 116);
+    text-shadow: 2em;
+}
+
 
 main {
-    margin-left: 15%;
-    margin-right: 15% ;
-    border: 2%;
-    border-style: solid;
-    
+    /**/
+    width: 70%;
+    max-width: 1200px;
+    min-width: 450px;
+
+    background-image: url(images/green-wallpaper-1.jpg) ;
+    background-position: auto;
+
+    margin: auto;
+
 }
 
+#center {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
 main section {
+    width: 70%;
+
+    min-width: inherit;
+    max-width: inherit;
 
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
+    margin: auto;
 }
