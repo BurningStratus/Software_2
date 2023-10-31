@@ -1,12 +1,15 @@
 
 html {
-    background-color: aliceblue;
+    background-image: url(images/green-wallpaper-1.jpg) ;
+    background-position: auto;
+    background-size: cover;
+    
 }
 
 nav {
     display: flex;
     
-    background-color: darkslategrey;
+    background-color: #192f00;
 
     padding-block: 2%;
     
@@ -16,7 +19,7 @@ nav {
     
     max-height: 30px;
     max-width: 1200px;
-    min-width: 450px;
+    min-width: 580px;
     height: 83px;
     width: 70%;
 
@@ -52,9 +55,23 @@ nav ul {
     margin-right: 10px
 }
 
-li:hover {
-    background-color: rgb(192, 158, 116);
-    text-shadow: 2em;
+a { 
+    margin-right: 10px;
+    text-decoration: none;
+    padding: 3px;
+    padding-left: 5px ;
+    padding-right: 10px;
+    color: black;
+    border-style: solid;
+    border-radius: 4px;
+    background-color: #cccccc;
+}
+
+a:hover {
+    color: #3f6424;
+    outline: #203902;
+    border-color: rgba(0, 0, 0, 0.697);
+
 }
 
 
@@ -62,29 +79,82 @@ main {
     /**/
     width: 70%;
     max-width: 1200px;
-    min-width: 450px;
+    min-width: 580px;
+    
+    display: flex;
 
-    background-image: url(images/green-wallpaper-1.jpg) ;
+    background-color: hsla(87, 93%, 12%, 0.80);
+    
     background-position: auto;
+    background-size: cover;
 
     margin: auto;
-
 }
 
-#center {
-    display: flex;
+.center {
+    justify-content: space-evenly;
+
     margin-left: auto;
     margin-right: auto;
     width: 50%;
-  }
+
+    text-align: center;
+}
 
 main section {
+    width: 90%;
+    max-width: 1200px;
+    min-width: 450px;
+
+    height: 90%;
+
+    font-family: 'Courier New', Courier, monospace;
+
+    margin: auto;
+}
+
+#gogreen {
+    
+    font-family: 'Contrail One', sans-serif;
+    
+    color: #407a01;
+    text-shadow: 0px 0px 4px #000000;
+
+    font-size: xx-large;
+    margin: auto;
+    margin-top: 15%;
+    margin-bottom: 5%;
+}
+
+section img {
+    padding-bottom: 20%;
+    margin:0 auto;
+    
     width: 70%;
 
-    min-width: inherit;
-    max-width: inherit;
+    min-width: 0;
+
+}
+
+footer {
+    max-width: 1200px;
+    min-width: 580px;
+    height: 83px;
+    width: 70%;
 
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
-    margin: auto;
+    margin:auto;
+    margin-bottom: 10%;
+    margin-top: -18px;
+
+    text-align: center;
+    font-size: large;
+
+    background-color: hsla(hsla(87, 93%, 12%, 0.80));
+    background-image: linear-gradient(to bottom, hsla(87, 93%, 12%, 0.80), hsla(87, 93%, 12%, 0.0));
+}
+
+footer p {
+    padding-top: 1%;
 }
