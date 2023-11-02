@@ -1,5 +1,6 @@
 
 from random import randint
+from math import fabs as abs
 
 highest_odometer = 0
 
@@ -12,7 +13,7 @@ class Car:
         self.curr_speed = curr_speed
         self.odo_km = odo_km
 
-    def show_car(self):
+    def car_info(self):
         print(f"vehicle {self.plate}   // Top speed: {self.top_speed} km/h."
               f" ODO: {self.odo_km} km // Speedometer: {self.curr_speed} km/h.")
         return None
@@ -35,39 +36,60 @@ class Car:
             return velocity_diff
 
     def drive(self, difference_km):
+        diff_km = abs(difference_km)
         
-        if difference_km < 0:
-            self.odo_km += -difference_km
-            # print(f"{self.plate} slows down")
-            return self.odo_km
-        else:
-            # print(f"The {self.plate} was tasked to drive for 1 hour @{delta} km/h.")
-            self.odo_km += difference_km
-            # print(f"In the end of the trip, the odometer shows {self.odom} km.\n")
-            return self.odo_km
+        # print(f"The {self.plate} was tasked to drive for 1 hour @{delta} km/h.")
+        self.odo_km += diff_km
+        # print(f"In the end of the trip, the odometer shows {self.odom} km.\n")
+        return self.odo_km
 
 class ICE(Car):
-    def __init__(self, plate, top_speed, fuel_consumption, odo_km=0, curr_speed=0):
+    def __init__(self, plate, top_speed, fuel_consumption, tank_l, odo_km=0, curr_speed=0):
         super().__init__(plate, top_speed, odo_km, curr_speed)
-        self.fuel_consumption = fuel_consumption
+        self.fuel_consumption = fuel_consumption / 100
+        self.tank_capacity = tank_l
+        self.tank_actual = tank_l
 
-    def show_car(self):
-        print(f"vehicle {self.plate} has a top speed of {self.top_speed} km/h!"
+    def car_info(self):
+        print(f"\nvehicle {self.plate} Top speed: {self.top_speed} km/h"
               f" ODO: {self.odo_km} km // Speedometer: {self.curr_speed} km/h."
-              f" Fuel consumption: {self.fuel_consumption} L/100 km")
+              f" Tank: {self.tank_actual} L // Fuel consumption: {self.fuel_consumption *100} L/100 km")
         return
+    
+    def drive(self, difference_km):
+        diff_km = abs(difference_km)
+        
+        # print(f"The {self.plate} was tasked to drive for 1 hour @{delta} km/h.")
+        self.odo_km += diff_km
+        self.tank_actual = self.tank_actual - (diff_km * self.fuel_consumption)
+        # print(f"In the end of the trip, the odometer shows {self.odom} km.\n")
+        
+        return self.odo_km, self.tank_capacity
+    
+    
 
 
 class ELEC(Car):
-    def __init__(self, plate, top_speed, power_kwh, odo_km=0, curr_speed=0):
+    def __init__(self, plate, top_speed, power_kwh, capacity_kwh, odo_km=0, curr_speed=0):
         super().__init__(plate, top_speed, odo_km, curr_speed)
-        self.power_kwh = power_kwh
+        self.power_kwh = power_kwh / 100
+        self.capacity_kwh = capacity_kwh
+        self.capacity_actual = capacity_kwh
+
     
-    def show_car(self):
-        print(f"vehicle {self.plate} has a top speed of {self.top_speed} km/h!"
+    def car_info(self):
+        print(f"vehicle {self.plate} Top speed: {self.top_speed} km/h"
               f" ODO: {self.odo_km} km // Speedometer: {self.curr_speed} km/h."
-              f" Power: {self.power_kwh} kWh/100 km")
+              f" Battery: {self.capacity_actual} kWh Power: {self.power_kwh * 100} kWh/100 km")
         return
+
+    def drive(self, difference_km):
+        diff_km = abs(difference_km)
+        # print(f"The {self.plate} was tasked to drive for 1 hour @{delta} km/h.")
+        self.odo_km += diff_km
+        self.capacity_actual = self.capacity_actual - (diff_km * self.power_kwh)
+        # print(f"In the end of the trip, the odometer shows {self.odom} km.\n")
+        return self.odo_km, self.capacity_kwh
 
 
 class Demolition_derby:
@@ -131,8 +153,14 @@ while race:
 #Car.list_cars.sort(key= lambda x: x.odo_km, reverse=True)
 #suuri_romuralli.print_situation()
 
-buick_roadmaster = ICE("R0AD-M4STR", 200, 23)
-tesla_x = ELEC("ELON-SPAM", 250, 17)
+holden_hq = ICE("R0AD-M4STR", 165, 32.4, 32.4, 160000)
+tesla_x = ELEC("ELON-SPAM", 185, 23.4, 52.5, 3000)
 
-buick_roadmaster.show_car()
-tesla_x.show_car()
+holden_hq.car_info()
+tesla_x.car_info()
+
+print(holden_hq.drive(3000))
+print(tesla_x.drive(3000))
+
+holden_hq.car_info()
+tesla_x.car_info()
