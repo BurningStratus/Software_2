@@ -1,42 +1,52 @@
-class Työntekijä:
 
-    työntekijöiden_lukumäärä = 0
+class Employee:
 
-    def __init__(self, etunimi, sukunimi):
-        Työntekijä.työntekijöiden_lukumäärä = Työntekijä.työntekijöiden_lukumäärä + 1
-        self.työntekijänumero = Työntekijä.työntekijöiden_lukumäärä
-        self.etunimi = etunimi
-        self.sukunimi = sukunimi
+    raise_amt = 1.04
 
-    def tulosta_tiedot(self):
-        print(f"{self.työntekijänumero}: {self.etunimi} {self.sukunimi}")
+    def __init__(self, first, last, pay) -> None:
+        self.first = first
+        self.last = last
+        self.email = first + "." + last + "@Jmail.com"
+        self.pay = pay
+    
+    def fullname(self):
+        return '{} {}'.format(self.first, self.last)
+    
+    def apply_raise(self):
+        self.pay = int(self.pay * self.raise_amt)
+    
+class Developer(Employee):
+    raise_amt = 1.10
 
-class Tuntipalkkainen(Työntekijä):
+    def __init__(self, first, last, pay, prog_lang) -> None:
+        super().__init__(first, last, pay)
+        self.prog_lang = prog_lang
 
-    def __init__(self, etunimi, sukunimi, tuntipalkka):
-        self.tuntipalkka = tuntipalkka
-        super().__init__(etunimi, sukunimi)
+class Manager(Employee):
 
-    def tulosta_tiedot(self):
-        super().tulosta_tiedot()
-        print(f" Tuntipalkka: {self.tuntipalkka}")
+    def __init__(self, first, last, pay, employees=None) -> None:
+        super().__init__(first, last, pay)
+        if employees is None:
+            self.employees = []
+        else:
+            self.employees = employees
+        
+    def add_employee(self, emp):
+        if emp not in self.employees:
+            self.employees.append(emp)
+    
+    def remv_employee(self, emp):
+        if emp in self.employees:
+            self.employees.remove(emp)
 
-class Kuukausipalkkainen(Työntekijä):
-
-    def __init__(self, etunimi, sukunimi, kuukausipalkka):
-        self.kuukausipalkka = kuukausipalkka
-        super().__init__(etunimi, sukunimi)
-
-    def tulosta_tiedot(self):
-        super().tulosta_tiedot()
-        print(f" Kuukausipalkka: {self.kuukausipalkka}")
+    def print_emps(self):
+        for emp in self.employees:
+            print(f"> {emp.fullname()} <\n")
 
 
-työntekijät = []
-työntekijät.append(Tuntipalkkainen("Viivi", "Virta", 12.35))
-työntekijät.append(Kuukausipalkkainen("Ahmed", "Habib", 2750))
-työntekijät.append(Työntekijä("Pekka", "Puro"))
-työntekijät.append(Tuntipalkkainen("Olga", "Glebova", 14.92))
+dev_1 = Developer("Corey", "Schafer", 58000, "Python")
+dev_2 = Developer("Jack", "Booker", 67000, "Java")
 
-for t in työntekijät:
-    t.tulosta_tiedot()
+mgr_1 = Manager("David", "Sarif", 100000, [dev_1])
+
+print(issubclass(Developer, Manager))
