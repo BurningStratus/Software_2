@@ -35,9 +35,9 @@ class Car:
             self.curr_speed += velocity_diff
             return velocity_diff
 
-    def drive(self, difference_km):
-        diff_km = abs(difference_km)
-        
+    def drive(self, time: int, speed: int):
+
+        diff_km = abs(time * speed)
         # print(f"The {self.plate} was tasked to drive for 1 hour @{delta} km/h.")
         self.odo_km += diff_km
         # print(f"In the end of the trip, the odometer shows {self.odom} km.\n")
@@ -53,11 +53,11 @@ class ICE(Car):
     def car_info(self):
         print(f"\nvehicle {self.plate} Top speed: {self.top_speed} km/h"
               f" ODO: {self.odo_km} km // Speedometer: {self.curr_speed} km/h."
-              f" Tank: {self.tank_actual} L // Fuel consumption: {self.fuel_consumption *100} L/100 km")
+              f" Tank: {self.tank_actual:.1f} L // Fuel consumption: {self.fuel_consumption *100} L/100 km")
         return
     
-    def drive(self, difference_km):
-        diff_km = abs(difference_km)
+    def drive(self, time: int, speed: int):
+        diff_km = abs(time * speed)
         
         # print(f"The {self.plate} was tasked to drive for 1 hour @{delta} km/h.")
         self.odo_km += diff_km
@@ -75,16 +75,15 @@ class ELEC(Car):
         self.power_kwh = power_kwh / 100
         self.capacity_kwh = capacity_kwh
         self.capacity_actual = capacity_kwh
-
     
     def car_info(self):
         print(f"vehicle {self.plate} Top speed: {self.top_speed} km/h"
               f" ODO: {self.odo_km} km // Speedometer: {self.curr_speed} km/h."
-              f" Battery: {self.capacity_actual} kWh Power: {self.power_kwh * 100} kWh/100 km")
+              f" Battery: {self.capacity_actual:.1f} kWh Power: {self.power_kwh * 100} kWh/100 km")
         return
 
-    def drive(self, difference_km):
-        diff_km = abs(difference_km)
+    def drive(self, time: int, speed: int):
+        diff_km = abs(time * speed)
         # print(f"The {self.plate} was tasked to drive for 1 hour @{delta} km/h.")
         self.odo_km += diff_km
         self.capacity_actual = self.capacity_actual - (diff_km * self.power_kwh)
@@ -159,8 +158,8 @@ tesla_x = ELEC("ELON-SPAM", 185, 23.4, 52.5, 3000)
 holden_hq.car_info()
 tesla_x.car_info()
 
-print(holden_hq.drive(3000))
-print(tesla_x.drive(3000))
+holden_hq.drive(3, 130)
+tesla_x.drive(3, 150)
 
 holden_hq.car_info()
 tesla_x.car_info()
