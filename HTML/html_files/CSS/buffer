@@ -1,0 +1,12 @@
+conpany_name{}
+    background-color: gray;
+    color: black;
+    
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: italic;
+    font-style: oblique;
+
+    padding-block: 2% ;
+    padding: 11px;
+    padding-top: 13px;
+    padding-bottom: 13px;

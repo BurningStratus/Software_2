@@ -165,7 +165,7 @@ footer {
     background-image: linear-gradient(to bottom, hsla(87, 93%, 12%, 0.80), hsla(87, 93%, 12%, 0.0));
     background-image: linear-gradient(to bottom, hsl(81, 99.1%, 43.5%), hsla(87, 93%, 12%, 0.0));
     */
-    background-image: linear-gradient(to bottom, #5acc00, hsla(87, 93%, 12%, 0.0));
+    background-image: linear-gradient(to bottom, #82e124, hsla(87, 93%, 12%, 0.0));
 }
 
 footer p {

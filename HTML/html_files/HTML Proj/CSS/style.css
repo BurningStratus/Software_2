@@ -1,9 +1,6 @@
 
 html {
-    /*
-    background-image: url(images/green-wallpaper-1.jpg);
-    */
-    background-color: azure;
+    background-image: url(images/green-wallpaper-1.jpg) ;
     background-position: auto;
     background-size: cover;
     
@@ -89,10 +86,8 @@ main {
     
     display: flex;
 
-    background-image: url(images/green-wallpaper-1.jpg);
-    /*
     background-color: hsla(87, 93%, 12%, 0.80);
-    */
+    
     background-position: auto;
     background-size: cover;
 
@@ -125,10 +120,9 @@ main section {
     
     font-family: 'Contrail One', sans-serif;
     
-    color: #253420;
-    /*
+    color: #55a202;
     text-shadow: 0px 0px 4px #000000;
-    */
+
     font-size: xx-large;
     margin: auto;
     margin-top: 15%;
@@ -148,7 +142,7 @@ section img {
 footer {
     max-width: 1200px;
     min-width: 580px;
-    height: 10rem;
+    height: 83px;
     width: 70%;
     margin:auto;
 
@@ -159,22 +153,15 @@ footer {
 
     text-align: center;
     font-size: large;
-    
-    /*
+
     background-color: hsla(hsla(87, 93%, 12%, 0.80));
     background-image: linear-gradient(to bottom, hsla(87, 93%, 12%, 0.80), hsla(87, 93%, 12%, 0.0));
-    background-image: linear-gradient(to bottom, hsl(81, 99.1%, 43.5%), hsla(87, 93%, 12%, 0.0));
-    */
-    background-image: linear-gradient(to bottom, #5acc00, hsla(87, 93%, 12%, 0.0));
 }
 
 footer p {
     padding-top: 1%;
     margin-left: 10px;
     margin-right: 10px;
-
-    color: #2b472f;
-    text-shadow: 0px 1px 1px #827979;
 }
 
 
@@ -222,7 +209,7 @@ footer p {
 .desc_up {
     font-style: italic;
     font-family: 'Courier New', Courier, monospace;
-    color: hsl(0, 100%, 99.4%);
+    color: gray;
     text-shadow: 0px 1px 1px #69b7169e;
     
     margin-top: auto;
@@ -234,9 +221,9 @@ footer p {
 .desc_un {
     margin: auto;
     margin-top: auto;
-    margin-bottom: 7px;
+    margin-bottom: auto;;
 
-    color: hsl(0, 60%, 1%);
+    color: gray;
     text-shadow: 0px 1px 1px #69b7169e;
 
     font-style: italic;
