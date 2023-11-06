@@ -11,13 +11,15 @@ getLocation = location.geocode(city)
 print("Receiving city coordinates ...")
 lat = getLocation.latitude
 lon = getLocation.longitude
+print("--------------------")
 print(lat, lon)
+print("--------------------")
 
-print("Calling weather service ...")
+print("Calling weather service ...\n")
 
 call_weather = f'https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={api_key}'
 req = requests.get(call_weather).json()
 
 temp = req['main']['temp']
 
-print(f" It is {temp - 273.15:.1f} C outside in {city}.")
+print(f"\nIt is {temp - 273.15:.1f} Celsius outside in {city}.")
