@@ -18,12 +18,9 @@ def onkoalkuluku(num):
     
     try:
         num = int(num)
-    except:
-        from random import randint
-        num = randint(0, 10)
-
-
-    dict_0 = {}
+    except TypeError:
+        return {"Number": num, "IsPrime": 'Bad number'}
+    
     isprime = True
 
     for i in range(2, num):
@@ -31,7 +28,7 @@ def onkoalkuluku(num):
             isprime = False
             break
 
-    return {"Number": num, "isprime": isprime}
+    return {"Number": num, "IsPrime": isprime}
 
 
 if __name__ == "__main__":

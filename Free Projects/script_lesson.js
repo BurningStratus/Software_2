@@ -57,3 +57,4 @@ const htmlName = 'lorem';
 const element = document.querySelector('#text');
 element.innerHTML = `Hi, ${htmlName}`;
 element.computedStyleMap.color = 'red';
+
