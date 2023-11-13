@@ -55,7 +55,6 @@ x_txt = 5
 y_txt = 5
 
 for radian in rads:
-
     plt.annotate(f'{radian:.1f}',
              xy=(np.cos(radian), np.sin(radian)), xycoords='data',
              xytext=(x_txt, y_txt), textcoords='offset points', fontsize=10,
