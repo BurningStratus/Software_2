@@ -8,7 +8,10 @@ degrees_list = [0, 45, 60, 90, 120, 150, 180, 270]
 rads = []
 
 for degs in degrees_list:
-    rads.append(np.deg2rad(degs))
+    radians = np.deg2rad(degs)
+    print(radians)
+    rads.append(radians)
+
 
 
 fig = plt.figure()
@@ -49,16 +52,18 @@ varit = np.array(['black', 'black', 'black', 'black', 'black', 'black', 'black',
 x = np.cos(pist_xy)
 y = np.sin(pist_xy)
 
-plt.scatter(x, y, color=varit, marker='X')
+plt.scatter(x, y, color=varit, marker='o')
 
 x_txt = 5
 y_txt = 5
 
-for radian in rads:
-    plt.annotate(f'{radian:.1f}',
+annotation_list = [f'0', r'$\frac{\pi}{4}$', r'$\frac{\pi}{3}$', r'$\frac{\pi}{2}$', r'$\frac{2\pi}{3}$', r'$\frac{5\pi}{6}$',
+                   r'$\pi$', r'$\frac{3\pi}{2}$']
+for radian, annotation in zip(rads, annotation_list):
+
+    plt.annotate(f'{annotation}',
              xy=(np.cos(radian), np.sin(radian)), xycoords='data',
              xytext=(x_txt, y_txt), textcoords='offset points', fontsize=10,
              arrowprops=dict(arrowstyle="-", connectionstyle="arc3,rad=0"))
-
 
 plt.show()
