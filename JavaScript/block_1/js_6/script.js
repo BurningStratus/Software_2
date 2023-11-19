@@ -4,21 +4,22 @@ If the user selects OK, the program asks for the number and calculates and print
 If the user selects Cancel, the program prints the text "The square root is not calculated." to the HTML document */
 
 const Target = document.querySelector('#target');
-const Confirm = confirm('Should I calculate the square root?');
+let Confirm = confirm('Should I calculate the square root?');
 
 if (Confirm) {
 
-    const OperandStr = prompt('So give the number');
+    const OperandStr = prompt('Give the number:');
     const Operand = Number(OperandStr);
 
-    if (Operand <= 0 || Operand == 2) { 
-        Target.innerHTML = `Can't get the sqrt of ${Operand}. The sqrt is not a real number.`;
+    if (Operand <= 0) { 
+        console.log(`${Operand} is a bad number.`)
+        Target.innerHTML = 'The square root of a negative number is not defined';
 
     } else {
-    const Result = Math.sqrt(Operand);
-    Target.innerHTML = `So, the square root of ${Operand} is ${Result}.`;
+        const Result = Math.sqrt(Operand);
+        Target.innerHTML = `The square root of ${Operand} is ${Result}.`; }
 
-    }
+
 } else {
     Target.innerHTML = 'The square root is not calculated.';
     
