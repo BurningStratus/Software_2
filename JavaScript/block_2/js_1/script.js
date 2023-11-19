@@ -7,13 +7,16 @@ Print the result to the console.(2p)
     Do not use array.reverse() function.
 */
 
-let Integers = [];
+let integers = [];
+let reverseInt = [];
 
-for (i=1; i <= 5; i++) {
+for (i=0; i < 5; i++) {
     const Integer = parseInt(prompt(`Give integer[${i}/5]:`));
-    Integers.push(Integer);
+    integers.push(Integer);
 }
+console.log(integers);
 
-for (i=0; -(i) < Integers.length; i--) {
-    console.log(Integers[(Integers.length - 1) + i]);
+for (i=0; -i < integers.length; i--) {
+    reverseInt.push(integers[(integers.length - 1) + i]);
 }
+console.log(reverseInt);

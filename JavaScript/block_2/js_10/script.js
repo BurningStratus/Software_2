@@ -38,11 +38,16 @@ for (i = 0; i < votersAmt; i++) {
     let vote = prompt(`Voter [${i + 1}/${votersAmt}], who are you voting for?\n` +
     '(type either the name of candidate or their serial number)');
     
-    for (j = 0; j < candidatesList.length; j++) {
+    for (let j = 0; j < candidatesList.length; j++) {
         
-        if (vote == candidatesList[j]['name']) {
+        console.log(`vote> ${vote} candidate>${candidatesList[j]['name']}`);
+
+        if (vote === candidatesList[j]['name']) {
             candidatesList[j]['votes'] += 1;
-        
+            
+            console.log('vote added')
+            j = candidatesList.length;
+
         } else {
             try {
                 vote = parseInt(vote);
