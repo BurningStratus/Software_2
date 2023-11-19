@@ -10,7 +10,7 @@ Print the result to the console.(2p)
 let Integers = [];
 
 for (i=1; i <= 5; i++) {
-    const Integer = parseInt(prompt('Give integer:'));
+    const Integer = parseInt(prompt(`Give integer[${i}/5]:`));
     Integers.push(Integer);
 }
 
