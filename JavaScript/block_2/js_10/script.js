@@ -31,34 +31,29 @@ for (i = 0; i < candidatesAmt; i++) {
     )
 }
 console.log(candidatesList);
-
 const votersAmt = parseInt(prompt('How many voters are there?'));
+
 for (i = 0; i < votersAmt; i++) {
     
     let vote = prompt(`Voter [${i + 1}/${votersAmt}], who are you voting for?\n` +
     '(type either the name of candidate or their serial number)');
-    
-    for (let j = 0; j < candidatesList.length; j++) {
-        
-        console.log(`vote> ${vote} candidate>${candidatesList[j]['name']}`);
 
-        if (vote === candidatesList[j]['name']) {
+    for (let j = 0; j < candidatesList.length; j++) {
+
+        if (isNaN(parseInt(vote)) == true && vote == candidatesList[j]['name']) {
             candidatesList[j]['votes'] += 1;
-            
-            console.log('vote added')
+    
+            console.log('vote added');
             j = candidatesList.length;
 
-        } else {
-            try {
-                vote = parseInt(vote);
+        } else if (parseInt(vote) == candidatesList[j]['serialNumber']) {
+                candidatesList[j]['votes'] += 1;
                 
-                if (vote == candidatesList[j]['serialNumber']) {
-                    candidatesList[j]['votes'] += 1;
-                }
-            } catch(TypeError) {
-                console.log('Bad conversion:>' + j);
-            } 
+                console.log('vote added');
+                j = candidatesList.length;
 
+        //    console.log('not a numeber', isNaN(parseInt(vote)), vote, candidatesList[j]['name']);
+        //    console.log('number', parseInt(vote), vote, candidatesList[j]['serialNumber'])
         }
     }
 }
