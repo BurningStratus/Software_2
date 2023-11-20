@@ -1,24 +1,8 @@
 /*
 Write a voting program as described below for small-scale meeting use. (8p)
-
     The program asks for the number of candidates.
     Then the program asks for the names of the candidates: 'Name for candidate 1
-    Store the candidates' names and initial vote count in objects like this:
-
-[
-    {
-        name: 'ellie',
-        votes: 0,
-    },
-    {
-        name: 'frank',
-        votes: 0,
-    }, 
-    {
-        name: 'pamela',
-        votes: 0,
-    },
-]
+    Store the candidates' names and initial vote count in objects.
 
     The program asks for the number of voters.
     The program asks each voter in turn who they will vote for. Voter shoud enter candidate name. 
@@ -30,39 +14,54 @@ results:
 pamela: 3 votes
 frank: 1 votes
 ellie: 1 votes
-
-    Some help:
-
-// You need to compare votes so console log a and b to see how to get the correct property.
-someArray.sort((a, b) => {
-   console.log(a, b);
-   return b - a;
-});
 */
 
 let candidatesList = [];
 const candidatesAmt = parseInt(prompt('Amount of candidates:'));
 
 for (i = 0; i < candidatesAmt; i++) {
-    const candName = prompt('Name of candidate:');
+    const candName = prompt(`Name of candidate [${i + 1}/${candidatesAmt}]:`);
+
     candidatesList.push(
         {
         name: candName,
-        vote: 0
+        votes: 0,
+        serialNumber: i + 1
         }
     )
 }
-for (i = 0; i < candidatesList.length; i++) {
-    console.log(candidatesList[i]);
-}
-
+console.log(candidatesList);
 const votersAmt = parseInt(prompt('How many voters are there?'));
+
 for (i = 0; i < votersAmt; i++) {
-    const vote = prompt('Who are you voting for?(wrong answers only)')
     
-    for (j = 0; j < candidatesList.length; j++) {
-        if (vote == candidatesList[j]['name']); {
-            candidatesList[j]['vote'] += 1;
-            }
+    let vote = prompt(`Voter [${i + 1}/${votersAmt}], who are you voting for?\n` +
+    '(type either the name of candidate or their serial number)');
+
+    for (let j = 0; j < candidatesList.length; j++) {
+
+        if (isNaN(parseInt(vote)) == true && vote == candidatesList[j]['name']) {
+            candidatesList[j]['votes'] += 1;
+    
+            console.log('vote added');
+            j = candidatesList.length;
+
+        } else if (parseInt(vote) == candidatesList[j]['serialNumber']) {
+                candidatesList[j]['votes'] += 1;
+                
+                console.log('vote added');
+                j = candidatesList.length;
+
+        //    console.log('not a numeber', isNaN(parseInt(vote)), vote, candidatesList[j]['name']);
+        //    console.log('number', parseInt(vote), vote, candidatesList[j]['serialNumber'])
         }
     }
+}
+
+candidatesList.sort((a, b) => b.votes - a.votes);
+
+console.log(`The winner is ${candidatesList[0]['name']} with ${candidatesList[0]['votes']} votes.\nresults:`);
+
+for (i = 0; i < candidatesAmt; i++) {
+    console.log(`${candidatesList[i]['name']}: ${candidatesList[i]['votes']} votes.`)
+}

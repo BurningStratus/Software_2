@@ -7,15 +7,17 @@ Print the result to the console.(2p)
     Do not use array.reverse() function.
 */
 
-let Integers = [];
+let integers = [];
+let reverseInt = [];
 
 for (let i = 1; i <= 5; i++) {
     const Integer = parseInt(prompt('Give integer:'));
     Integers.push(Integer);
 
 }
+console.log(integers);
 
-for (let i = 0; -(i) < Integers.length; i--) {
+for (i=0; -(i) < Integers.length; i--) {
     console.log(Integers[(Integers.length - 1) + i]);
-
 }
+console.log(reverseInt);
