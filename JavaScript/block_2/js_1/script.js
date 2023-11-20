@@ -9,11 +9,13 @@ Print the result to the console.(2p)
 
 let Integers = [];
 
-for (i=1; i <= 5; i++) {
+for (let i = 1; i <= 5; i++) {
     const Integer = parseInt(prompt('Give integer:'));
     Integers.push(Integer);
+
 }
 
-for (i=0; -(i) < Integers.length; i--) {
+for (let i = 0; -(i) < Integers.length; i--) {
     console.log(Integers[(Integers.length - 1) + i]);
+
 }
