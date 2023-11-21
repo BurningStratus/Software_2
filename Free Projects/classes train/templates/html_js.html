@@ -15,7 +15,7 @@
     'use strict';
     // comment
     /* comment */
-    
+    let giveNumber;
 </script>
 <style>
 </style>
@@ -27,11 +27,20 @@
     Aut iusto quasi beatae molestiae labore nihil at consequuntur id amet.
 </p>
 
-<button id="funny">Click to change color!</button>
+<button id="funny" onclick="">Click to change color!</button>
+<a href="http://127.0.0.1:3000/old_notation/{{giveNumber}}"></a>
+
+<form action="http://127.0.0.1:3000/old_notation/{{giveNumber}}">
+    <label for="fname">Insert number</label><br>
+    <input type="number" value="giveNumber"><br><br>
+    <input type="submit" value="Submit">
+  </form> 
 
 <p class="target">
     this is an additional paragraph
 </p>
+
+<h1>hi there, {{name}}</h1>
 
 
 </body>

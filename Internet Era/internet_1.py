@@ -28,7 +28,7 @@ def get_not_hello(name, age):
 @server.route("/funny")
 def calculate():
     f_num, s_num = request.args.get("number_1"), request.args.get("number_2")
-    return f"{int(f_num)+int(s_num)}"
+    return f"{int(f_num)+int(s_num)}" # type: ignore
 
 # http://127.0.0.1:3000/dir/num1
 # ex. res: 'num1: 5, res: 25'
