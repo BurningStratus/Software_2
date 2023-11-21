@@ -1,6 +1,5 @@
 from flask import Flask, request, Response, render_template
 import json
-import html
 
 server = Flask(__name__)
 
