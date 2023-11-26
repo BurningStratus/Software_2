@@ -93,49 +93,69 @@ const picArray = [
 ];
 
 /*
-Create multiple <article> elements that contain heading, 
-image, image caption and text and populate them with the data from picArray.
-Add the articles to the <section> element. (5p)
+Modify the program to open large image in a modal when <article> is clicked. (6p)
 
-  The structure of the articles should be this:
+    kick yourself at this point if you used innerHTML to create the <article> and its content.
+    add the following html code between </div> and </body> manually to the HTML-document (no JS)
 
-<article class="card">
-   <h2>title_from_picArray</h2>
-   <figure>
-      <img src="medium_image_from_picArray" alt="title_from_picArray">
-      <figcaption>caption_from_picarray</figcaption>
-   </figure>
-   <p>description_from_picArray</p>
-</article>
+<dialog>
+   <span>&#x2715;</span>
+   <img>
+</dialog>
 
+picArray has two images for each item: medium and large. 
+Medium is used in the <img> inside the <article> and 
+large is used in the <img> inside the <dialog>.
+
+use showModal() and close() functions to show and hide <dialog>
+the same time you are opening the modal, you should put the large image to the <img> in the modal.
+
+Don't forget to add alt attribute.
+use <span> inside <dialog> to close the modal.
 */
 
 function createArticle(picture) {
   const article = window.document.createElement('article');
-  
+  // header
   const header2 = document.createElement('h2');
   header2.innerText = picture["title"];
-
+  
+  // default picture
   const figure = document.createElement('figure');
   const image = document.createElement('img');
   image.src = picture["image"]["medium"];
   image.alt = picture["title"];
   const figcaption = document.createElement('figcaption');
   figcaption.innerText = picture["caption"];
+  // larger image
+  const largerImg = document.createElement('img');
+  largerImg.src = picture["image"]["large"];
 
+  // paragraph
   const parag = document.createElement('p');
   parag.innerText = picture["description"];
-
-
+  
+  // adding all elements to the article
   article.append(header2);
   article.append(figure);
+  article.append(parag);
+  article.classList.add("card");
   
   figure.append(image);
   figure.append(figcaption);
 
-  article.append(parag);
+  const closeButton = document.getElementsByTagName('span')[0];
+  const dialog = document.getElementsByTagName('dialog')[0];
 
-  article.classList.add("card");
+  article.addEventListener('click', () => {
+    const dialogImg = dialog.getElementsByTagName('img')[0];
+    dialogImg.src = picture["image"]["large"];
+    dialog.showModal();
+  });
+
+  closeButton.addEventListener('click', () => {
+    dialog.close();
+  });
 
   console.log('new article done');
   return article

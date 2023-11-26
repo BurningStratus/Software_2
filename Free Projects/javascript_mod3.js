@@ -23,6 +23,14 @@ function clickFunction(event) {
     return
 }
 
-document.addEventListener('keyup', function(event) {
+const htmlDoc = document.querySelector('html');
+
+targetElement.addEventListener('click', function(event) {
     console.log('pressed', event.key);
+});
+
+let pressd = true;
+
+targetElement.addEventListener('click', function(){
+    htmlDoc.style = 'background-color: black';
 });
