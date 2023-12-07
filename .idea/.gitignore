@@ -1,8 +1,11 @@
 # Default ignored files
 /shelf/
 /workspace.xml
+/software 2 project example
+/software 2 project example/
 # Editor-based HTTP Client requests
 /httpRequests/
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
+

@@ -1,12 +1,28 @@
 
-const body = document.body;
-const button = document.createElement('button');
-button.innerText = 'click';
+const button = window.document.getElementById('butt');
 
-xcom = button.addEventListener("keypress", function(event){
-    console.log(event.key)
-});
+button.innerText = 'DO NOT CLICK!!!';
+button.addEventListener('click', () => {
+    console.log(Math.floor(Math.random() + 1));
+})
 
-button.removeEventListener('keypress', button);
+let target = document.getElementById('target0');
+let documentWhole = document.getElementsByTagName('html')[0];
 
-body.append(button);
+documentWhole.addEventListener('contextmenu', (event) => {
+    event.preventDefault();
+    console.log('no right click :)')
+})
+
+documentWhole.addEventListener('keydown', (event) => {
+    documentWhole = document.getElementsByTagName('html')[0];
+
+    if (event.key == 'F12') {
+        event.preventDefault();
+        target.innerHTML = 'no';
+    }
+})
+
+const list = [1, 2, 3];
+
+console.log(length.list)

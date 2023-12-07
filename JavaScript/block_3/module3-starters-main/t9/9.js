@@ -19,7 +19,7 @@ function Meth() {
     let rawExpression = document.getElementById('calculation').value;
     let x, y;
     let result;
-
+    
     if (rawExpression.includes('+')) {
         x = rawExpression.split('+')[0];
         y = rawExpression.split('+')[1];

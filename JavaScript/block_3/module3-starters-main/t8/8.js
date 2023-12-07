@@ -17,8 +17,8 @@ const resultNode = document.getElementById('result');
 triggerNode.addEventListener('click', function() {
     console.log('func started');
     const functional = document.getElementById('operation').value;
-    const int1 = parseInt(document.getElementById('num1').value);
-    const int2 = parseInt(document.getElementById('num2').value);
+    const int1 = parseFloat(document.getElementById('num1').value);
+    const int2 = parseFloat(document.getElementById('num2').value);
     
     let result;
     console.log(functional);
@@ -36,6 +36,9 @@ triggerNode.addEventListener('click', function() {
         case 'div':
             result = int1 / int2;
             break;
+        case 'mid':
+            result = (int1 + int2) / 2
+            break
     }
     console.log(result);
     resultNode.innerText = result;

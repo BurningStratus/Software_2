@@ -20,7 +20,7 @@ def multiply(arg):
     'velka': int(arg) * int(arg)
     }
     resp = json.dumps(resp)
-    return render_template('html_js.html', name=resp)
+    return render_template('.. html_js.html', name=resp)
 
 # http://127.0.0.1:3000?arg=3
 @server.route('/new_notation') # type: ignore
